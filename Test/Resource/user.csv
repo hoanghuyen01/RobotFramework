@@ -1,0 +1,6 @@
+*** Test Cases ***,${username},${password},${role},${title},${expected_message}
+Wrong Password,rahulshettyacademy,invalid_password,admin,Student,Incorrect username/password.
+Wrong Username,invalid_username,learning,admin,Teacher,Incorrect username/password.
+Empty Password,rahulshettyacademy,,admin,Student,Empty username/password.
+Empty Username,,learning,admin,Student,Empty username/password.
+Empty Both Username And Password,,,admin,Student,Empty username/password.

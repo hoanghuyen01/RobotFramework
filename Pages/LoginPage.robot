@@ -6,7 +6,6 @@ ${username_locator}    id:username
 ${passwrd_locator}    id:password
 ${signInBtn}    id:signInBtn
 ${titleDropdown}    xpath=//select[@class='form-control']
-${alertMessage}    xpath=//div[@class="alert alert-danger col-md-12"]
 ${Login_Page_URL}    loginpagePractise/
 ${link_free_access}    xpath=//a[@class = 'blinkingText']
 ${locator_title_free_access_page}    css:h1
@@ -23,10 +22,16 @@ Fill login form
     Select Role for User    ${role}
     Select From List By Label    ${titleDropdown}    ${title}
     Click On SignIn Button
+Compare Messages Displayed After User Login
+    [Arguments]    ${username}    ${password}    ${role}    ${title}    ${expected_message}
+    Fill login form    ${username}    ${password}    ${role}    ${title}
+    Verify error message if user input invalid credential on login form    ${expected_message}
+
 Verify error message if user input invalid credential on login form
-    Wait Until Element Is Visible    ${alertMessage}
-    ${actualMessage}=    Get Text    ${alertMessage}
-    Should Be Equal As Strings    ${actualMessage}    Incorrect username/password.
+    [Arguments]    ${expected_message}
+    Wait Until Element Is Visible    ${locator_error_alert}
+    ${actualMessage}=    Get Text    ${locator_error_alert}
+    Should Be Equal As Strings    ${actualMessage}    ${expected_message}
     Log    ${actualMessage}
 
 Fill Username
@@ -56,9 +61,3 @@ Grab email address on Free Access Page
 Switch To Main Window To Fill The Extracted Email
     Switch Window    Main
     Fill Username    ${email}
-User login unsuccessfully with invalid data
-    [Arguments]    ${username}    ${pass}
-    Fill Username    ${username}
-    Fill Password    ${pass}
-    Click On SignIn Button
-    Element Should Be Visible    ${locator_error_alert}    Empty username/password.

@@ -1,0 +1,18 @@
+{
+  "Customer 1": {
+    "name": "Elly",
+    "password": "Elly@123",
+    "email": "elly@gmail.com",
+    "gender": "Female",
+    "employee": "option1",
+    "DOB": "01/01/1997"
+  },
+  "Customer 2": {
+    "name": "Elsa",
+    "password": "Elsa@123",
+    "email": "Elsa@gmail.com",
+    "gender": "Female",
+    "employee": "option2",
+    "DOB": "01/01/1990"
+  }
+}
