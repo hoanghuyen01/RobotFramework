@@ -13,8 +13,7 @@ ${locator_email_address}    css:p.red>strong
 ${locator_error_alert}    css:div.alert-danger
 *** Keywords ***
 Go To Login Page
-    [Arguments]    ${browser}
-    Go To Page    ${Login_Page_URL}    ${browser}
+    Go To Page    ${Login_Page_URL}
 Fill login form
     [Arguments]    ${username}    ${password}    ${role}    ${title}
     Fill Username    ${username}

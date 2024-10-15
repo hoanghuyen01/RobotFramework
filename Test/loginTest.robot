@@ -1,8 +1,8 @@
 *** Settings ***
 Library    DataDriver    file=Resource\\user.csv    encoding=utf_8    dialect=excel
-Test Setup    Go To Login Page    chrome
+Test Setup    Go To Login Page
 Test Teardown    Close All Browsers
-Resource    Pages/LoginPage.robot
+Resource    ../Pages/LoginPage.robot
 *** Test Cases ***
 Login with multiple users
     [Template]    User login unsuccessfully with invalid data

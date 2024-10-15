@@ -1,0 +1,6 @@
+robotframework-seleniumlibrary==6.2.0
+pandas==2.2.3
+robotframework-pabot==2.18.0
+robotframework-datadriver==1.11.2
+
+

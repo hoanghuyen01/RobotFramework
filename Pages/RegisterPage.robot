@@ -1,10 +1,10 @@
 *** Settings ***
-Library    Helper/Common.py
+Library    ../Helper/Common.py
 Library    BuiltIn
 Library    Collections
 Library    SeleniumLibrary
 Library    String
-Resource    BasePage.robot
+Resource    ../Pages/BasePage.robot
 
 *** Variables ***
 ${username_locator}    xpath=//div[@class='form-group']//input[@name='name']
@@ -17,11 +17,9 @@ ${date_locator}    css:input[name='bday']
 ${submit_btn}    css:input[value='Submit']
 ${msg_success_locator}    css:div.alert-success
 ${Register_Page_URL}    angularpractice/
-
 *** Keywords ***
-Go To Register Page    
-    [Arguments]    ${browser}
-    Go To Page    ${Register_Page_URL}    ${browser}
+Go To Register Page
+    Go To Page    ${Register_Page_URL}
     
 Input Username On Register Form
     [Arguments]    ${username}
@@ -51,9 +49,9 @@ Select Employment Status
     Select Radio Button    inlineRadioOptions    ${status}
     Radio Button Should Be Set To    inlineRadioOptions    ${status}
 Register New User With Sample Data
-    [Arguments]    {customer_data}
+    [Arguments]    ${customer_data}
     ${data}=    Get Data From Json File    ${customer_json_path}
-    ${cust}=    Get From Dictionary    ${data}    {customer_data}
+    ${cust}=    Get From Dictionary    ${data}    ${customer_data}
     ${username}=    Get From Dictionary    ${cust}    name
     ${email}=    Get From Dictionary    ${cust}    email
     ${password}=    Get From Dictionary    ${cust}    password
